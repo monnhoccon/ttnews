@@ -20,7 +20,8 @@ echo
 "
 ===================================================
 	         NUYUL COIN TTNEWS
-            CREATED BY GUSRYAN PADRIANSYAH  
+            CREATED BY GUSRYAN PADRIANSYAH
+	           ReCode By PGV
 ===================================================
 \n";
 echo "Nhập Ticket: ";
