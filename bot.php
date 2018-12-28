@@ -26,7 +26,7 @@ echo
 \n";
 echo "Nhập Ticket: ";
 $ticket = trim(fgets(STDIN));
-echo "Nhập số lên xem: ";
+echo "Nhập số lần xem: ";
 $jumlah = trim(fgets(STDIN));
 echo "Thời gian? 0-999 (ex:15): ";
 $jeda = trim(fgets(STDIN));
