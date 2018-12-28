@@ -31,5 +31,5 @@ echo "Thời gian? 0-999 (ex:15): ";
 $jeda = trim(fgets(STDIN));
 $pukis = kntl($ticket, $jumlah, $jeda);
 print $pukis;
-print "DONE\n";
+print "Đã auto xong\n";
 ?>
