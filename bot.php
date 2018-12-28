@@ -1,4 +1,9 @@
 <?php
+//color
+$biru="\033[1;36m";
+$putih="\033[1;37m";
+$red="\033[1;31m";
+$t = "\n";
 function kntl($ticket, $jumlah, $jeda){
     $x = 0; 
     while($x < $jumlah) {
@@ -7,30 +12,45 @@ function kntl($ticket, $jumlah, $jeda){
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        $server_output = curl_exec ($ch);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);     
+        $result = curl_exec ($ch);
+		    $js = json_decode($result,true);
+        $code = $js['code'];
+        $msg = $js['msg'];
+        $gold = $js['data']['gold_flag'];
+		    $count = $js['data']['count'];
         curl_close ($ch);
-        echo $server_output."\n";
+        $biru="\033[1;36m";
+        $ijo="\033[92m";
+        $putih="\033[1;37m";
+        $t = "\n";
+        if ($js['code'] == '200') {
+          echo $biru."[-] ".$ijo.$msg.$putih." || Gold: ".$ijo."+".$gold.$putih." || Count: ".$ijo.$count.$t;
+        }
+        else
+        {
+        echo $biru."[-] ".$ijo.$msg.$t;
+        }
         sleep($jeda);
         $x++;
         flush();
     }
 }
-echo 
+echo $ijo.
 "
 ===================================================
 	         NUYUL COIN TTNEWS
             CREATED BY GUSRYAN PADRIANSYAH
 	           ReCode By PGV
 ===================================================
-\n";
-echo "Nhập Ticket: ";
+".$t;
+echo $biru."[✔] ".$putih."Nhập Ticket: ";
 $ticket = trim(fgets(STDIN));
-echo "Nhập số lần xem: ";
+echo $biru."[✔] ".$putih."Nhập số lần xem: ";
 $jumlah = trim(fgets(STDIN));
-echo "Thời gian? 0-999 (ex:15): ";
+echo $biru."[T] ".$putih."Thời gian? 0-999 (ex:15): ";
 $jeda = trim(fgets(STDIN));
 $pukis = kntl($ticket, $jumlah, $jeda);
 print $pukis;
-print "Đã auto xong\n";
+print $biru."[✔] ".$red."Đã auto xong\n";
 ?>
