@@ -23,11 +23,11 @@ echo
             CREATED BY GUSRYAN PADRIANSYAH  
 ===================================================
 \n";
-echo "Ticket: ";
+echo "Nhập Ticket: ";
 $ticket = trim(fgets(STDIN));
-echo "Jumlah: ";
+echo "Nhập số lên xem: ";
 $jumlah = trim(fgets(STDIN));
-echo "Jeda? 0-999 (ex:15): ";
+echo "Thời gian? 0-999 (ex:15): ";
 $jeda = trim(fgets(STDIN));
 $pukis = kntl($ticket, $jumlah, $jeda);
 print $pukis;
